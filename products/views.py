@@ -1,0 +1,19 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+from .models import Product
+
+# /products -> index
+# URL - Uniform Resource Locator (Address)
+
+
+def index(request):
+    products = Product.objects.all()
+    return render(request, "index.html", {'products': products})
+
+
+def new(request):
+    return HttpResponse("NEW products")
+
+
+def new_one(request):
+    return HttpResponse("De-acu mai pot face o pagina")
